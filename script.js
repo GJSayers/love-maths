@@ -30,7 +30,7 @@ function runGame(gameType) {
     }
     }
 
-}
+
 function answer() {
 
 }

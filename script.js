@@ -31,9 +31,24 @@ function runGame(gameType) {
     }
 
 
-function answer() {
+function checkAnswer() {
+    // Checks the answer against the first element in the 
+    // returned calculateCorrecAnswer array
+
+    let userAnswer = parseInt(document.getElementById("answer-box").value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+
+    if (isCorrect) 
+    // just putting isCorrect into the parentheses is short hand for isCorrect = True
+    {
+        alert("Hey, your answer is correct, well done!");
+    } else {
+        alert(`Sorry... ${userAnswer} was the wrong answer. The correct answer is ${calculatedAnswer[0]}!`);
+    }
 
 }
+
 function calculateCorrectAnswer() {
     // gets the operands from the DOM
 

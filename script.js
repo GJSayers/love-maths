@@ -47,6 +47,8 @@ function checkAnswer() {
         alert(`Sorry... ${userAnswer} was the wrong answer. The correct answer is ${calculatedAnswer[0]}!`);
     }
 
+    runGame(calculatedAnswer[1]);
+
 }
 
 function calculateCorrectAnswer() {

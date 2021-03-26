@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
 
     for (let button of buttons) {
-        button.addEventListener("click", function() {
+        button.addEventListener("click", function () {
             if (this.getAttribute("data-type") == "submit") {
                 checkAnswer();
             } else {
@@ -19,16 +19,23 @@ function runGame(gameType) {
     // Generate 2 random numbers between 1 and 25
     // Math.floor rounds the number to an integer (whole number) 
     // Math.random creates a random number.
-    let num1 = Math.floor(Math.random()* 25) + 1;
-    let num2 = Math.floor(Math.random()* 25) + 1;
+    let num1 = Math.floor(Math.random() * 25) + 1;
+    let num2 = Math.floor(Math.random() * 25) + 1;
 
     if (gameType === "addition") {
         displayAdditionQuestion(num1, num2);
+    } else if (gameType === "subtract") {
+        displaySubtractionQuestion(num1, num2);
+    } else if (gameType === "multiply") {
+        displayMultiplicationQuestion(num1, num2);
+    } else if (gameType === "division") {
+        displayDivisionQuestion(num1, num2);
     } else {
         alert(`Unknown game type ${gameType}`);
         throw `Unknown game type ${gameType}, aborting!`;
     }
-    }
+}
+
 
 
 function checkAnswer() {
@@ -39,7 +46,7 @@ function checkAnswer() {
     let calculatedAnswer = calculateCorrectAnswer();
     let isCorrect = userAnswer === calculatedAnswer[0];
 
-    if (isCorrect) 
+    if (isCorrect)
     // just putting isCorrect into the parentheses is short hand for isCorrect = True
     {
         alert("Hey, your answer is correct, well done!");
@@ -62,7 +69,14 @@ function calculateCorrectAnswer() {
 
     if (operator === "+") {
         return [operand1 + operand2, "addition"];
+    } else if (operator === "x") {
+        return [operand1 * operand2, "multiply"];
+    } else if (operator === "-")  {
+        return [operand1 - operand2, "subtract"];
+    } else if (operator === "/") {
+        return [operand1 / operand2, "division"];
     } else {
+
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}, aborting!`;
     }
@@ -91,6 +105,39 @@ function displayAdditionQuestion(operand1, operand2) {
     document.getElementById("operand1").textContent = operand1;
     document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "+";
+
+
+}
+
+function displaySubtractionQuestion(operand1, operand2) {
+
+    // IDs are taken from the span elements of the question area
+
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "-";
+
+
+}
+
+function displayMultiplicationQuestion(operand1, operand2) {
+
+    // IDs are taken from the span elements of the question area
+
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "x";
+
+
+}
+
+function displayDivisionQuestion(operand1, operand2) {
+
+    // IDs are taken from the span elements of the question area
+
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "/";
 
 
 }

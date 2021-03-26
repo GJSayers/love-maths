@@ -43,8 +43,10 @@ function checkAnswer() {
     // just putting isCorrect into the parentheses is short hand for isCorrect = True
     {
         alert("Hey, your answer is correct, well done!");
+        incrementScore();
     } else {
         alert(`Sorry... ${userAnswer} was the wrong answer. The correct answer is ${calculatedAnswer[0]}!`);
+        incrementWrongAnswer();
     }
 
     runGame(calculatedAnswer[1]);
@@ -68,10 +70,20 @@ function calculateCorrectAnswer() {
 }
 function incrementScore() {
 
-}
-function incrementWrongAnswer() {
+    // Gets the current score from the DOM and increments it
+
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
 
 }
+function incrementWrongAnswer() {
+    // Gets the current score from the DOM and increments it
+
+    let oldScore = parseInt(document.getElementById("incorrect").innerText);
+    document.getElementById("incorrect").innerText = ++oldScore;
+
+}
+
 function displayAdditionQuestion(operand1, operand2) {
 
     // IDs are taken from the span elements of the question area

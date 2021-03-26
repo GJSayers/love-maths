@@ -43,6 +43,13 @@ function incrementScore() {
 function incrementWrongAnswer() {
 
 }
-function displayAdditionQuestion() {
+function displayAdditionQuestion(operand1, operand2) {
+
+    // IDs are taken from the span elements of the question area
+
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "+";
+
 
 }

@@ -116,6 +116,14 @@ body {
     color: blue;
 }
 
+.btn--big::after {
+    content: attr(data-type);
+    font-size: 1rem;
+    color: #445361;
+    position: relative;
+    left: -0.5rem;
+}
+
 .btn--blue:active,
 .btn--blue:hover {
     background-color: darkblue;
